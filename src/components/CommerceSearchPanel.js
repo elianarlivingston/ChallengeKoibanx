@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 import { useState, useEffect } from 'react'
-// import useCommerce from '../hooks/useCommerce'
 import { clone } from '../utils'
 
 const CommerceSearchPanel = ({ getAllCommerces }) => {
@@ -13,7 +14,6 @@ const CommerceSearchPanel = ({ getAllCommerces }) => {
         field: 'id',
         asc: true
     })
-    // const { getAllCommerces } = useCommerce()
     const [showMenu, setShowMenu] = useState(false)
 
     const toggleOrder = () => setOrder({...order, asc: !order.asc})
