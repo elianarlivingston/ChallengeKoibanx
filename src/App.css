@@ -1,0 +1,300 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    
+    /* TYPOGRAPHY */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --font-base: 1rem;
+    --ratio: 1.2;
+
+    --ts-4: var(--font-base);
+
+    --ts-3: calc(var(--ts-4) * var(--ratio));
+    --ts-2: calc(var(--ts-3) * var(--ratio));
+    --ts-1: calc(var(--ts-2) * var(--ratio));
+    --ts-5: calc(var(--font-base) / var(--ratio));
+    --ts-6: calc(var(--ts-5) / var(--ratio));
+
+    /* COLORS */
+
+    --text-base: #6B7280;
+    --text-light: #D1D5DB;
+    --text-dark: #374151;
+
+    --bg-base: #F9FAFB;
+    --bg-light: #fff;
+    --bg-dark: #F3F4F6;
+
+    --primary: #503cff;
+
+    /* UTILS */
+    --input-h: 40px;
+}
+
+body {
+    font-family: var(--font-family);
+    /* font-size: var(--ts-4); */
+    color: var(--text-base);
+}
+
+
+/* LAYOUT */
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+
+.search-panel {
+    padding: .5rem 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 4px;
+    
+    background-color: var(--bg-dark);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =================== SEARCH =================== */
+.search {
+    width: max-content;
+    position: relative;
+}
+
+.search-bar{
+    display: flex;
+    height: var(--input-h);
+    gap: .5rem;
+    padding: .25rem .75rem;
+    border-radius: 4px;
+    border: 1px solid var(--text-light);
+
+    background-color: var(--bg-base);
+}
+
+.search-bar__input {
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-base);
+}
+
+.search-bar__btn{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.search-bar__icon {
+    font-size: var(--ts-5);
+    color: var(--text-dark);
+}
+
+.search-bar:focus-within {
+    border-color: var(--primary-dark);
+}
+.search-bar:focus-within .search-bar__icon {
+    color: var(--primary-dark);
+}
+
+/* =================== MENU =================== */
+
+.menu {
+    border-radius: 4px;
+    position: absolute;
+    top: var(--input-h);
+    left: 0;
+    right: 0;
+    background-color: var(--bg-light);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =================== LIST =================== */
+.list{
+    /* reset */
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.list__item {
+    /* reset */
+    margin: 0;
+    list-style: none;
+
+    font-size: var(--ts-5);
+    padding: .75em 1em;
+}
+
+.list__item--hover:hover {
+    background-color: var(--bg-base); 
+    color: var(--primary);
+}
+
+.list--base {
+    background-color: var(--bg-light); 
+}
+
+
+/* =================== INPUTS =================== */
+.input-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.input-group__input:checked ~ .input-group__label {
+    color: var(--primary);
+}
+
+.input-group__label{
+    color: var(--text-dark);
+}
+
+/* =================== BUTTON =================== */
+
+.btn {
+    /* reset */
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    border-radius: 4px;
+    padding: .5em 1em;
+    cursor: pointer;
+}
+
+.btn--ghost:hover {
+    background-color: var(--bg-base);
+}
+
+.btn--normal {
+    border: 1px solid var(--bg-dark);
+    background-color: var(--bg-base);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.btn--normal:hover {
+    background-color: var(--bg-light);
+}
+
+.btn--normal:active {
+    background-color: var(--bg-dark);
+}
+
+
+/* =================== SELECT =================== */
+
+.select {
+    /* reset */
+    outline: none;
+
+    border: 1px solid var(--bg-dark);
+    border-radius: 4px;
+    padding: .5em 1em;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-base);
+    color: var(--text-base);
+}
+
+/* =================== TABLE =================== */
+
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+.table__item {
+    font-size: var(--ts-5);
+    font-weight: 300;
+    padding: .75rem 1rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+
+
+/* =================== UTILITIES CLASS =================== */
+
+.is-flex {
+    display: flex;
+} 
+
+.is-flex-col {
+    flex-direction: column;
+} 
+
+.is-items-center {
+    align-items: center;
+}
+
+.is-justify-center {
+    justify-content: center;
+}
+
+.is-gap-4 {
+    gap: 1rem;
+} 
+
+.is-gap-2 {
+    gap: .5rem;
+}
+
+.is-w-full {
+    width: 100%;
+}
+
+.h-0 {
+    height: 0;
+}
+
+.h-auto {
+    height: auto;
+}
+
+.is-text-light{
+    color: var(--text-light);
+}
+
+.is-text-base{
+    color: var(--text-base);
+}
+
+.is-bg-dark{
+    background-color: var(--bg-dark);
+}
+
+.text-3 {
+    font-size: var(--ts-3);
+}
+
+.is-grid {
+    display: grid;
+}
+
+.is-grid-cols-6 {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.is-bb-1 {
+    border-bottom: 1px solid var(--text-light);
+}
+
+.is-py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
